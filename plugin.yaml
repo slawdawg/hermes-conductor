@@ -5,6 +5,7 @@ manifest_version: 2
 api_version: 1
 license: Apache-2.0
 homepage: https://github.com/slawdawg/hermes-conductor
+requires_hermes: ">=0.21.6"
 tags: [kanban, orchestration, review, governance, evidence]
 config_schema:
   enabled:

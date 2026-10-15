@@ -33,7 +33,19 @@ See [`docs/architecture.md`](docs/architecture.md) and [`examples/config.yaml`](
 
 ## Compatibility
 
-Conductor will target clean, released Hermes versions and validate its integration boundary in CI. If Hermes lacks a necessary atomic extension seam, Conductor will propose a small generic upstream API rather than maintain a scheduler fork.
+Conductor will target clean, released Hermes versions and validate its integration boundary in CI. The initial compatibility floor is Hermes `0.21.6`. If Hermes lacks a necessary atomic extension seam, Conductor will propose a small generic upstream API rather than maintain a scheduler fork.
+
+## Catalog and security disclosures
+
+Hermes Conductor is designed for catalog submission, but it will not be submitted until its documented external-lane proof of concept is complete and validated at a pinned release commit.
+
+**Current `0.1.0` behavior:** it registers only the `/conductor-status` command. It makes no network calls, runs no shell commands, starts no background process, reads no credentials, and stores no telemetry.
+
+**Planned operational behavior:** configured lane wrappers may launch user-selected local review/development runners. Before that capability is released, this README will disclose every network endpoint, command execution mode, data path, background process, credential route, and retention behavior. Telemetry will remain opt-in.
+
+The plugin has no self-updater. Catalog installs will be exact commit pins, and updates will be delivered only through the Hermes catalog SHA-bump process.
+
+See [`docs/catalog-readiness.md`](docs/catalog-readiness.md) for the maintained admission checklist.
 
 ## License
 
