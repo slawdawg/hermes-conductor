@@ -151,6 +151,40 @@ Users may customize: provider/model profile, prompt templates, review stages, ti
 
 The following remain invariant: exact-candidate evidence binding; auditable overrides; credential redaction; explicit holds for ambiguous results; no final review before required pre-review; and no arbitrary task-provided shell/model/provider configuration.
 
+## Low-friction product strategy
+
+The first release must optimize for one trustworthy default workflow rather than exposing the full policy engine. A new user should be able to install Conductor, choose development and review profiles, run one governed task, understand every decision, and recover from one failure without editing Hermes core or reading source.
+
+### Initial product experience
+
+- Provide one-command setup through a `/conductor-setup` wizard that writes a validated profile-scoped configuration.
+- Ship three presets: **simple** (development only), **governed** (development plus required Codex pre-review), and **team/release** (governed flow plus required final review).
+- Keep the common configuration short; advanced values remain available only as explicit overrides.
+- Separate portable policy configuration from machine-local secrets, paths, and provider authentication.
+- Provide configuration initialization, export/redaction, and validation commands.
+
+### Required operator experience
+
+- Provide `status`, `validate-config`, `dry-run`, `verify-evidence`, `release`, and `export-evidence` commands.
+- A dry run must show the selected lane, profile, provider/model, workspace mode, required gates, expected evidence location, and any reason dispatch would be blocked.
+- Every hold must identify the event, missing evidence or violated condition, candidate identity, and the exact safe operator action.
+- No telemetry is enabled in the initial release. Any later telemetry must be opt-in, documented, minimal, and easily disabled.
+
+### MVP boundary
+
+Version `0.1` is complete only after it provides:
+
+- validated configuration and the three presets;
+- one external development lane;
+- one read-only Codex pre-review lane;
+- candidate hash and evidence receipt;
+- a required Codex PASS before an enabled final-review lane can start;
+- the operator commands above;
+- explicit holds for unknown runner outcomes; and
+- documented solo, team/release, and local-provider examples.
+
+Defer dashboards, complex scheduling, multi-repository coordination, custom notification transports, and broad provider abstractions until real usage identifies a demonstrated need.
+
 ## Decision gate for an upstream change
 
 A core change may be proposed only after a clean-upstream proof demonstrates a specific failure that cannot be addressed by an external lane, pre-spawn wrapper, plugin command, hook, middleware, or compensation workflow. The proposal must identify the exact race/transaction boundary, contain no organization-specific policy, add a public documented seam, and be independently tested upstream.
