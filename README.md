@@ -1,6 +1,6 @@
 # Hermes Conductor
 
-**Governed, configurable multi-agent delivery for [Hermes Agent](https://github.com/NousResearch/hermes-agent).**
+**Hermes Conductor is an unofficial, independent plugin for [Hermes Agent](https://github.com/NousResearch/hermes-agent).** It is governed, configurable multi-agent delivery without maintaining a private Hermes fork.
 
 Hermes Conductor is an upstream-compatible plugin for teams and individuals who want explicit development, pre-review, and final-review lanes without maintaining a private Hermes fork.
 
@@ -29,7 +29,7 @@ It is built around Hermes' documented plugin APIs and external Kanban worker lan
 
 Choose your own providers, models, timeouts, notifications, and review sequence. Conductor keeps a few invariants non-configurable: evidence must match the reviewed candidate, credentials are redacted, ambiguous runner exits create an explicit hold, and overrides are auditable.
 
-See [`docs/architecture.md`](docs/architecture.md), the versioned [`docs/delivery-plan.md`](docs/delivery-plan.md), the implementation [`docs/spec-v0.1.md`](docs/spec-v0.1.md), and [`examples/config.yaml`](examples/config.yaml).
+See [`docs/architecture.md`](docs/architecture.md), the versioned [`docs/delivery-plan.md`](docs/delivery-plan.md), the implementation [`docs/spec-v0.1.md`](docs/spec-v0.1.md), the maintained [`docs/risk-register.md`](docs/risk-register.md), and [`examples/config.yaml`](examples/config.yaml).
 
 ## Compatibility
 
