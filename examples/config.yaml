@@ -1,0 +1,28 @@
+# Copy this file into a profile-scoped location and point plugin config_path at it.
+version: 1
+profiles:
+  development:
+    provider: codex
+    model: gpt-5.6-terra
+    lane: conductor-development
+    max_runtime_minutes: 120
+    retry: { max_attempts: 1, manual_hold_on_uncertain_exit: true }
+  pre_review:
+    provider: codex
+    model: gpt-5.6-terra
+    lane: conductor-pre-review
+    read_only: true
+  final_review:
+    provider: claude
+    model: opus
+    lane: conductor-final-review
+    read_only: true
+gates:
+  require_pre_review_before_final: true
+  require_candidate_hash_match: true
+notifications:
+  owner_actions_only: true
+  quiet_hours: { timezone: America/Chicago, start: '22:00', end: '08:00' }
+evidence:
+  hash_algorithm: sha256
+  retain_days: 90

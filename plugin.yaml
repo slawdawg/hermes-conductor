@@ -1,0 +1,17 @@
+name: hermes-conductor
+version: 0.1.0
+description: Governed, configurable multi-agent delivery lanes for Hermes Agent
+manifest_version: 2
+api_version: 1
+license: Apache-2.0
+homepage: https://github.com/slawdawg/hermes-conductor
+tags: [kanban, orchestration, review, governance, evidence]
+config_schema:
+  enabled:
+    type: bool
+    default: true
+    description: Enable Conductor policy registration.
+  config_path:
+    type: str
+    default: ''
+    description: Optional profile-scoped YAML policy file.
