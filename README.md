@@ -29,7 +29,7 @@ It is built around Hermes' documented plugin APIs and external Kanban worker lan
 
 Choose your own providers, models, timeouts, notifications, and review sequence. Conductor keeps a few invariants non-configurable: evidence must match the reviewed candidate, credentials are redacted, ambiguous runner exits create an explicit hold, and overrides are auditable.
 
-See [`docs/architecture.md`](docs/architecture.md), the versioned [`docs/delivery-plan.md`](docs/delivery-plan.md), the implementation [`docs/spec-v0.1.md`](docs/spec-v0.1.md), the [`docs/private-fork-lessons.md`](docs/private-fork-lessons.md) migration ledger, the maintained [`docs/risk-register.md`](docs/risk-register.md), and [`examples/config.yaml`](examples/config.yaml).
+See [`docs/architecture.md`](docs/architecture.md), the versioned [`docs/delivery-plan.md`](docs/delivery-plan.md), the implementation [`docs/spec-v0.1.md`](docs/spec-v0.1.md), the [`docs/private-fork-lessons.md`](docs/private-fork-lessons.md) migration ledger, the [`docs/technical-debt-disposition.md`](docs/technical-debt-disposition.md) assessment, the maintained [`docs/risk-register.md`](docs/risk-register.md), and [`examples/config.yaml`](examples/config.yaml).
 
 ## Compatibility
 
